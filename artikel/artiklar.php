@@ -11,7 +11,7 @@ $artikelNamn="lg 32";
 $pris=1999;
 $beskrivning="mycket kompetent tv med full HD. En av de bästa i världen.";
 $bild="bild.png";
-echo"<id=\"dfdghhg\">"
+echo"<id=\"dfddfghhg\">";
 
 
 
