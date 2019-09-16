@@ -1,10 +1,14 @@
-#field{
-width: 400px;
-
-
+#artikel{
+width: 300px;
 
 }
-#artikel{
-display:flex;
 
+html{
+
+  background-color: pink;
+}
+
+#wrapper{
+display:flex;
+flex-wrap: wrap;
 }
