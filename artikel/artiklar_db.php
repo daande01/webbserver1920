@@ -1,12 +1,9 @@
 <?php
-
-$art=array(
-  array("lg 32",1000,"tv1.","bild.png"),
-  array("lg 42",2000,"tv2.","bild.png"),
-  array("lg 48",3000,"tv3","bild.png"),
-
-);
-
+error_reporting(E_ALL);
+require('dbconnect.php');
+$dbcon= new dbconnect();
+$stmt = $dbcon->pdo->query('SELECT * FROM artiklar');
+$stmt->execute();
 
 
 ?>
@@ -22,15 +19,18 @@ $art=array(
   <?php
 
   echo"<div id=\"wrapper\">";
+//print_r($row = $stmt->fetchAll());
 
-  for ($row=0; $row <3 ; $row++) {
+while ($row = $stmt->fetch()){
+
+
 echo <<<ARTIKEL
 
 <div id="artikel">
 <fieldset id="field">
-<legend> {$art[$row][2]}   </legend>
-<img src="bilder/{$art[$row][3]}" alt="{$art[$row][0]}" >
-pris: {$art[$row][1]} kr
+<legend> {$row['namn']}   </legend>
+<img src="bilder/{$row['bild']}" alt="{$row['bild']}" >
+pris: {$row['pris']} kr
 </fieldset>
 </div>
 ARTIKEL;
