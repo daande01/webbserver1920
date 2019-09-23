@@ -1,11 +1,28 @@
 <?php
+require ('dbconnect.php');
 
-$art=array(
-  array("lg 32",1000,"tv1.","bild.png"),
-  array("lg 42",2000,"tv2.","bild.png"),
-  array("lg 48",3000,"tv3","bild.png"),
+// $art=array(
+//   array("lg 32",1000,"tv1.","bild.png"),
+//   array("lg 42",2000,"tv2.","bild.png"),
+//   array("lg 48",3000,"tv3","bild.png"),
+//
+// );
 
-);
+$db=new dbconnect();
+
+//statement =dbconnectobjekt->instansvariabeln_pdo->metoden query som finns i pdo klassen
+$stmt = $db->pdo->query("SELECT * FROM artiklar");
+$stmt->execute();
+
+$data = $stmt->fetchAll();
+
+//print_r($data);
+
+
+
+
+
+
 
 
 
@@ -23,14 +40,14 @@ $art=array(
 
   echo"<div id=\"wrapper\">";
 
-  for ($row=0; $row <3 ; $row++) {
+  foreach ($data as $row) {
 echo <<<ARTIKEL
 
 <div id="artikel">
 <fieldset id="field">
-<legend> {$art[$row][2]}   </legend>
-<img src="bilder/{$art[$row][3]}" alt="{$art[$row][0]}" >
-pris: {$art[$row][1]} kr
+<legend> {$row['namn']}   </legend>
+<img src="bilder/{$row['bild']}" alt="{$row['bild']}" >
+pris: {$row['pris']} kr
 </fieldset>
 </div>
 ARTIKEL;
