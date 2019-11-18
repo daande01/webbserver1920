@@ -6,8 +6,13 @@ $user=$_GET['username'];
 $pass=$_GET['password'];
 
 $dbcon= new dbconnect();
-$stmt = $dbcon->pdo->query('SELECT * FROM users where username='".$user."' and password='".$pass."' ');
+$sql="SELECT * FROM users where username= '".$user."' and password='".$pass."'";
+echo $sql;
+
+$stmt = $dbcon->pdo->query( $sql );
 $stmt->execute();
+
+
 
 if($stmt->fetch()){
 
