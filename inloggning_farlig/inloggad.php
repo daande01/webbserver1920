@@ -14,5 +14,7 @@ echo"<a href=\"logout.php\" >logga ut </a>  ";
 header('Location:index.php');
 
 
+
+
 }
  ?>

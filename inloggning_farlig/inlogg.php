@@ -1,23 +1,24 @@
 <?php
 session_start();
+require('dbconnect.php');
 
 $user=$_GET['username'];
 $pass=$_GET['password'];
 
-//echo"password".$pass."username".$user;
+$dbcon= new dbconnect();
+$stmt = $dbcon->pdo->query('SELECT * FROM users where username='".$user."' and password='".$pass."' ');
+$stmt->execute();
 
-if($user=="daniel" && $pass=="test"){
+if($stmt->fetch()){
 
-      $_SESSION["usersession"]=$user;
-      header('Location:inloggad.php');
-
+        $_SESSION["usersession"]=$user;
+        header('Location:inloggad.php');
 
 }else{
 
-echo"ej inloggad";
 header('Location:index.php?login=false');
-
 }
+
 
 
 
