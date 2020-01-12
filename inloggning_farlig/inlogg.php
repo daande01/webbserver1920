@@ -23,7 +23,11 @@ if($stmt->fetch()){
 
 header('Location:index.php?login=false');
 }
-
+// echo"<br>";
+// echo password_hash("da", PASSWORD_DEFAULT);
+// echo"<br>";
+// echo password_hash("be", PASSWORD_DEFAULT);
+//SELECT * FROM users where username= 'asa' or 1=1'' and password='test'
 
 
 
