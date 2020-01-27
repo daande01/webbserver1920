@@ -30,7 +30,7 @@ echo"</select>";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
 $( "select" ).change(function() {
-  console.log("hej");
+  console.log("test");
 
   $.get( "getkom.php", {countyid: $( "#county" ).val() }, function( data ) {
 
@@ -44,11 +44,6 @@ $( "#text" ).html(data);
 
       newtext=newtext+""+ data[i].namn+ "<br>" ;
     }
-
-
-
-
-
 
 },"json");
 
